@@ -28,10 +28,7 @@ public class WordPuzzle {
 	}	
 		public static String wordPuzzleMethod(String input){
 		String newInput = new String(input).toLowerCase();
-		String finalOutPut = newInput.replace("a", "-").replace("e", "-").replace("i", "-").replace("o", "-").replace("u", "-").replace("y", "-");
+		String finalOutPut = newInput.replaceAll("a", "-").replaceAll("e", "-").replaceAll("i", "-").replaceAll("o", "-").replaceAll("u", "-").replaceAll("y", "-");
 		return finalOutPut;
 	}	
-
 }
-
-//fairly sure that I
