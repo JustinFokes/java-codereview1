@@ -11,9 +11,8 @@ public class WordPuzzle {
 	}	
 		public static String wordPuzzleMethod(String input){
 		
-		String newInput = new String(input);
-		String finalOutPut = newInput.replace("a", "-");
-		System.out.println(finalOutPut);
+		String newInput = new String(input).toLowerCase();
+		String finalOutPut = newInput.replaceAll("a", "-").replaceAll("e", "-").replaceAll("i", "-").replaceAll("o", "-").replaceAll("u", "-").replaceAll("y", "-");
 		return finalOutPut;
 	}	
 
