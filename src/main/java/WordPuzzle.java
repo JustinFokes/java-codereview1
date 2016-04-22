@@ -12,36 +12,36 @@ import static spark.Spark.*;
 public class WordPuzzle {
 		public static void main(String[] args) {
 			staticFileLocation("/public");
+			
 			get("/", (request, response) -> {
       		HashMap<String, Object> model = new HashMap<String, Object>();
+      		model.put("testedInput", request.session().attribute("testedInput"));
       		model.put("template", "templates/home.vtl");
       		return new ModelAndView(model, "templates/layout.vtl");
     	}, 	new VelocityTemplateEngine());
 
-		    get("/detector", (request, response) -> {
+		    post("/guess", (request, response) -> {
 		    HashMap<String, Object> model = new HashMap<String, Object>();
+		    model.put("template", "templates/guess.vtl");
 
 		    String userInput1 = request.queryParams("user1");
-		    String userInput2 = request.queryParams("user2");
+		    request.session().attribute("testedInput", userInput1);
 		    WordPuzzle wordPuzzle = new WordPuzzle();
 		    String outPut = wordPuzzle.wordPuzzleMethod(userInput1);
 		    model.put("outPut", outPut);
-
-      		model.put("template", "templates/detector.vtl");
       		return new ModelAndView(model, "templates/layout.vtl");
     	}, 	new VelocityTemplateEngine());
 
-		    //upon form submit show "guessed word", and hide "detector"...
-
-		    get("/detector", (request, response) -> {
+		    get("/guessedWord", (request, response) -> {
 		    HashMap<String, Object> model = new HashMap<String, Object>();
-		    String userInputOne = request.queryParams("user1");
+		    model.put("template", "templates/guessedWord.vtl");
+		    String toCompare = request.session().attribute("testedInput");
 		    String userInput2 = request.queryParams("user2");
 		    WordPuzzle wordPuzzle = new WordPuzzle();
-		    String outPutTwo = wordPuzzle.guessMethod(userInputOne, userInput2);
+		    String outPutTwo = wordPuzzle.guessMethod(toCompare, userInput2);
 		    model.put("outPutTwo", outPutTwo);
 
-      		model.put("template", "templates/guessedWord.vtl");
+      		
       		return new ModelAndView(model, "templates/layout.vtl");
     	}, 	new VelocityTemplateEngine());
 			
