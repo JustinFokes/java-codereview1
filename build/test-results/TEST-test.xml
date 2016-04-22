@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="test" tests="5" skipped="0" failures="0" errors="0" timestamp="2016-04-22T05:45:22" hostname="Justins-MacBook-Pro.local" time="0.005">
+<testsuite name="test" tests="5" skipped="0" failures="0" errors="0" timestamp="2016-04-22T05:48:44" hostname="Justins-MacBook-Pro.local" time="0.004">
   <properties/>
-  <testcase name="test_takesSingleVowelInputAndReturnsDash_dash" classname="test" time="0.003"/>
+  <testcase name="test_takesSingleVowelInputAndReturnsDash_dash" classname="test" time="0.001"/>
   <testcase name="test_takesDoubleVowelInputAndReturnsDash_dash" classname="test" time="0.0"/>
-  <testcase name="test_takesAllVowelInputsOfDifferentCasesAndReturnsDash_dash" classname="test" time="0.0"/>
+  <testcase name="test_takesAllVowelInputsOfDifferentCasesAndReturnsDash_dash" classname="test" time="0.001"/>
   <testcase name="test_takesAllVowelInputsAndReturnsDash_dash" classname="test" time="0.0"/>
-  <testcase name="test_takesTwoDifferentVowelInputsAndReturnsDash_dash" classname="test" time="0.001"/>
+  <testcase name="test_takesTwoDifferentVowelInputsAndReturnsDash_dash" classname="test" time="0.0"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
