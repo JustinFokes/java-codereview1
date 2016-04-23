@@ -20,6 +20,23 @@ public class AppTest extends FluentTest {
   @Test
   public void rootTest() {
     goTo("http://localhost:4567/");
-    assertThat(pageSource()).contains("score");
+    assertThat(pageSource()).contains("guess");
   }
+  @Test
+  public void containsHyphens() {
+  goTo("http://localhost:4567/");
+  fill("#user1").with("this");
+  submit(".btn");
+  assertThat(pageSource()).contains("th-s");
+}
+  @Test
+  public void returnsOriginal() {
+  goTo("http://localhost:4567/");
+  fill("#user1").with("this");
+  submit(".btn");
+  fill("#user2").with("this");
+  submit(".btn");
+  
+  assertThat(pageSource()).contains("Look's like we have a match!");
+}
 }
